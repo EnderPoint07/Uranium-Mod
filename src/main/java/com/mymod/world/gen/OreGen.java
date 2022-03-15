@@ -37,7 +37,7 @@ public class OreGen {
     public static final int NETHER_VEINSIZE = 5;
     public static final int NETHER_AMOUNT = 3;
     public static final int END_VEINSIZE = 10;
-    public static final int END_AMOUNT = 6;
+    public static final int END_AMOUNT = 10;
 
     public static RuleTest IN_ENDSTONE = new TagMatchTest(Tags.Blocks.END_STONES);
 
