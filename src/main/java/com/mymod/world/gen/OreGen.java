@@ -43,8 +43,6 @@ public class OreGen {
     public static PlacedFeature NETHER_OREGEN;
     public static PlacedFeature END_OREGEN;
 
-    public static Block ore_uranium = Registration.UraniumOre.get();
-
     public static void registerConfiguredFeatures()
     {
 
