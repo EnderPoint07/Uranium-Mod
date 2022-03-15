@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "xxx",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "mymod:uranium_shard"
+    }
+  },
+  "result":
+  {
+    "item": "mymod:uraniumblock",
+    "count": 1
+  }
+}

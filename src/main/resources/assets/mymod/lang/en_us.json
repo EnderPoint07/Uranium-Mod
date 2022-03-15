@@ -1,0 +1,8 @@
+{
+  "block.mymod.myblock": "MyBlock",
+  "block.mymod.uraniumblock":"Block of Uranium",
+  "block.mymod.uranium_ore": "Uranium Ore",
+
+  "item.mymod.uranium_shard": "Uranium Ingot",
+  "item.mymod.raw_uranium": "Raw Uranium"
+}

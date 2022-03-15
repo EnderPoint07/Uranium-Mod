@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient":
+  {
+    "item": "mymod:raw_uranium"
+  },
+  "result": "mymod:uranium_shard",
+  "experience": 5.0,
+  "cookingtime": 200
+}
