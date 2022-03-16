@@ -31,10 +31,10 @@ public class OreGen {
     public static final int OVERWORLD_AMOUNT = 3;
     public static final int DEEPSLATE_VEINSIZE = 5;
     public static final int DEEPSLATE_AMOUNT = 3;
-    public static final int NETHER_VEINSIZE = 5;
-    public static final int NETHER_AMOUNT = 3;
-    public static final int END_VEINSIZE = 10;
-    public static final int END_AMOUNT = 10;
+    public static final int NETHER_VEINSIZE = 10;
+    public static final int NETHER_AMOUNT = 6;
+    public static final int END_VEINSIZE = 20;
+    public static final int END_AMOUNT = 12;
 
     public static RuleTest IN_ENDSTONE = new TagMatchTest(Tags.Blocks.END_STONES);
 
@@ -54,21 +54,21 @@ public class OreGen {
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
 
         OreConfiguration deepslateConfig = new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), DEEPSLATE_VEINSIZE);
-        OVERWORLD_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(overworldConfig),
+        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(deepslateConfig),
                 CountPlacement.of(DEEPSLATE_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(64)));
 
         OreConfiguration netherConfig = new OreConfiguration(OreFeatures.NETHER_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), NETHER_VEINSIZE);
-        NETHER_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(overworldConfig),
+        NETHER_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(netherConfig),
                 CountPlacement.of(NETHER_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
 
         OreConfiguration endConfig = new OreConfiguration(IN_ENDSTONE, Registration.UraniumOre.get().defaultBlockState(), END_VEINSIZE);
-        END_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(overworldConfig),
+        END_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(endConfig),
                 CountPlacement.of(END_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
