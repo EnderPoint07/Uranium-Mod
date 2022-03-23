@@ -4,5 +4,10 @@
   "block.mymod.uranium_ore": "Uranium Ore",
 
   "item.mymod.uranium_shard": "Uranium Ingot",
-  "item.mymod.raw_uranium": "Raw Uranium"
+  "item.mymod.raw_uranium": "Raw Uranium",
+
+  "item.mymod.uranium_helmet": "Uranium Helmet",
+  "item.mymod.uranium_chestplate": "Uranium Chestplate",
+  "item.mymod.uranium_leggings": "Uranium Leggings",
+  "item.mymod.uranium_boots": "Uranium Boots"
 }
