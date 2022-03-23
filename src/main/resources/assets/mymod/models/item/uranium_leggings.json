@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "texures": {
+    "layer0": "mymod:items/uranium_leggings"
+  }
+}
