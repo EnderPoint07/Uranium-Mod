@@ -1,5 +1,5 @@
 {
-  "parent": "item/handheld",
+  "parent": "item/generated",
   "texures": {
     "layer0": "mymod:item/uranium_boots"
   }
