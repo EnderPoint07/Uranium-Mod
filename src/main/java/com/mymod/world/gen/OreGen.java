@@ -3,12 +3,12 @@ package com.mymod.world.gen;
 
 import com.mymod.MyMod;
 import com.mymod.Registration;
+import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -38,47 +38,46 @@ public class OreGen {
 
     public static RuleTest IN_ENDSTONE = new TagMatchTest(Tags.Blocks.END_STONES);
 
-    public static PlacedFeature OVERWORLD_OREGEN;
-    public static PlacedFeature DEEPSLATE_OREGEN;
-    public static PlacedFeature NETHER_OREGEN;
-    public static PlacedFeature END_OREGEN;
+    public static Holder<PlacedFeature> OVERWORLD_OREGEN;
+    public static Holder<PlacedFeature> DEEPSLATE_OREGEN;
+    public static Holder<PlacedFeature> NETHER_OREGEN;
+    public static Holder<PlacedFeature> END_OREGEN;
 
     public static void registerConfiguredFeatures()
     {
 
         OreConfiguration overworldConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), OVERWORLD_VEINSIZE);
-        OVERWORLD_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(overworldConfig),
+        OVERWORLD_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, overworldConfig),
                 CountPlacement.of(OVERWORLD_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
 
         OreConfiguration deepslateConfig = new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), DEEPSLATE_VEINSIZE);
-        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(deepslateConfig),
+        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, deepslateConfig),
                 CountPlacement.of(DEEPSLATE_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(64)));
 
         OreConfiguration netherConfig = new OreConfiguration(OreFeatures.NETHER_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), NETHER_VEINSIZE);
-        NETHER_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(netherConfig),
+        NETHER_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, netherConfig),
                 CountPlacement.of(NETHER_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
 
         OreConfiguration endConfig = new OreConfiguration(IN_ENDSTONE, Registration.UraniumOre.get().defaultBlockState(), END_VEINSIZE);
-        END_OREGEN = registerPlacedFeature("uranium_ore", Feature.ORE.configured(endConfig),
+        END_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, endConfig),
                 CountPlacement.of(END_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
     }
 
-    private static <C extends FeatureConfiguration, F extends Feature<C>> PlacedFeature registerPlacedFeature(String registeryName, ConfiguredFeature<C, F> feature, PlacementModifier ... placementModifiers)
+    private static <C extends FeatureConfiguration, F extends Feature<C>> Holder<PlacedFeature> registerPlacedFeature(String registeryName, ConfiguredFeature<C, F> feature, PlacementModifier ... placementModifiers)
     {
-        PlacedFeature placed = BuiltinRegistries.register(BuiltinRegistries.CONFIGURED_FEATURE, new ResourceLocation(registeryName), feature).placed(placementModifiers);
-        return PlacementUtils.register(registeryName, placed);
+        return PlacementUtils.register(registeryName, Holder.direct(feature), placementModifiers);
     }
 
     @SubscribeEvent(priority = EventPriority.HIGH)
