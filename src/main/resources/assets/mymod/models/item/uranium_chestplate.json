@@ -1,6 +1,6 @@
 {
-  "parent": "item/generated",
-  "texures": {
+  "parent": "item/handheld",
+  "textures": {
     "layer0": "mymod:item/uranium_chestplate"
   }
 }
