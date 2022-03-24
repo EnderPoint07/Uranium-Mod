@@ -1,4 +1,6 @@
 {
+  "itemGroup.Uranium" : "Uranium Mod",
+
   "block.mymod.myblock": "MyBlock",
   "block.mymod.uraniumblock":"Block of Uranium",
   "block.mymod.uranium_ore": "Uranium Ore",
