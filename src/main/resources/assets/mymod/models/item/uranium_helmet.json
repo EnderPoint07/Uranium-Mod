@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "texures": {
-    "layer0": "mymod:items/uranium_helmet"
+    "layer0": "mymod:item/uranium_helmet"
   }
 }
