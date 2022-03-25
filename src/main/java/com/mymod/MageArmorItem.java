@@ -1,12 +1,8 @@
 package com.mymod;
 
-import com.mojang.blaze3d.shaders.Effect;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
@@ -74,7 +70,11 @@ public class MageArmorItem extends ArmorItem {
 
             uraniumBootsEquipped = true;
         }
+        if (uraniumBootsEquipped && uraniumLeggingsEquipped && uraniumChestPlateEquipped && uraniumHelmetEquipped) {
 
+            fullSetUranium = true;
+
+        }
         stack = player.getInventory().getArmor(2);
         MyMod.LOGGER.info("armour:" + stack);
         MyMod.LOGGER.info("test");
