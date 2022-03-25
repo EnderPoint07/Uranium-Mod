@@ -77,7 +77,7 @@ public class MageArmorItem extends ArmorItem {
 
         stack = player.getInventory().getArmor(2);
         MyMod.LOGGER.info("armour:" + stack);
-        MyMod.LOGGER.info("armour:" + player.getInventory().getArmor(3));
+        MyMod.LOGGER.info("test");
     }
 
 
