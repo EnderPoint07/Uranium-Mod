@@ -29,7 +29,7 @@ public class MyMod
     public static final String MODID = "mymod";
 
         // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public static final String TAB_NAME = "Uranium Mod";
 
@@ -62,6 +62,8 @@ public class MyMod
 
         event.enqueueWork(OreGen::registerConfiguredFeatures);
 
+        
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -82,38 +84,5 @@ public class MyMod
     public void onServerStarting(ServerStartingEvent event) {
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
-    }
-
-    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
-    // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-
-            //public static final Block UraniumBlock = new Block(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().strength(2).sound(SoundType.AMETHYST).lightLevel(value -> 20).requiresCorrectToolForDrops()).setRegistryName(MODID, "uraniumblock");
-       // public static final Block UraniumOre = new OreBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.2f).sound(SoundType.METAL).lightLevel(value -> 5).requiresCorrectToolForDrops()).setRegistryName("uranium_ore");
-
-        //public static final Item UraniumShards = new Item(new Item.Properties().stacksTo(64).tab(UraniumMod_Tab).rarity(Rarity.RARE)).setRegistryName(MODID, "uranium_shard");
-        //public static final Item RawUranium = new Item((new Item.Properties().rarity(Rarity.RARE).tab(UraniumMod_Tab).stacksTo(68))).setRegistryName(MODID, "raw_uranium");
-
-        @SubscribeEvent
-            public static void RegisterBlocks(final RegistryEvent.Register<Block> event) {
-            // register a new block here
-            //event.getRegistry().register(UraniumBlock);
-            //event.getRegistry().register(UraniumOre);
-
-            LOGGER.info("HELLO from Register Block");
-
-
-        }
-
-        @SubscribeEvent
-        public static void  RegisterItemBlocks(final RegistryEvent.Register<Item> event) {
-            //event.getRegistry().register(new BlockItem(RegistryEvents.UraniumBlock, new Item.Properties().tab(CreativeModeTab.TAB_MATERIALS).rarity(Rarity.EPIC).stacksTo(64)).setRegistryName(UraniumBlock.getRegistryName()));
-            //event.getRegistry().register(new BlockItem(RegistryEvents.UraniumOre, new Item.Properties().tab(UraniumMod_Tab).stacksTo(64).rarity(Rarity.UNCOMMON)).setRegistryName(UraniumOre.getRegistryName()));
-
-            //event.getRegistry().register(UraniumShards);
-            //event.getRegistry().register(RawUranium);
-        }
-
     }
 }

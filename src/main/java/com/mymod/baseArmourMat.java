@@ -69,5 +69,7 @@ public class baseArmourMat implements ArmorMaterial {
     public float getToughness() {
         return this.toughness;
     }
+
+
 }
 
