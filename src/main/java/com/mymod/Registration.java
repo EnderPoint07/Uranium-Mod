@@ -1,5 +1,6 @@
 package com.mymod;
 
+import com.mymod.armourItems.UrainumArmour;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.BlockItem;
@@ -25,6 +26,7 @@ public class Registration {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         BLOCKS.register(bus);
         ITEMS.register(bus);
+
     }
 
     public static final RegistryObject<Block> UraniumBlock = BLOCKS.register("uraniumblock", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().strength(2).sound(SoundType.AMETHYST).lightLevel(value -> 20).requiresCorrectToolForDrops()));
@@ -36,10 +38,10 @@ public class Registration {
     public static final RegistryObject<Item> UraniumShards = ITEMS.register("uranium_shard", () -> new Item(new Item.Properties().stacksTo(64).tab(MyMod.UraniumMod_Tab).rarity(Rarity.RARE)));
     public static final RegistryObject<Item> RawUranium = ITEMS.register("raw_uranium", () -> new Item(new Item.Properties().rarity(Rarity.RARE).tab(MyMod.UraniumMod_Tab   ).stacksTo(68)));
 
-    public static final RegistryObject<ArmorItem> Uranium_Helmet  = ITEMS.register("uranium_helmet", () -> new ArmorItem( ArmorMaterialInit.URANIUM , EquipmentSlot.HEAD, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<ArmorItem> Uranium_ChestPlate  = ITEMS.register("uranium_chestplate", () -> new ArmorItem( ArmorMaterialInit.URANIUM , EquipmentSlot.CHEST, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<ArmorItem> Uranium_Leggings  = ITEMS.register("uranium_leggings", () -> new ArmorItem( ArmorMaterialInit.URANIUM , EquipmentSlot.LEGS, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
-    public static final RegistryObject<ArmorItem> Uranium_Boots = ITEMS.register("uranium_boots", () -> new ArmorItem( ArmorMaterialInit.URANIUM , EquipmentSlot.FEET, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<ArmorItem> Uranium_Helmet  = ITEMS.register("uranium_helmet", () -> new UrainumArmour( ArmorMaterialInit.URANIUM , EquipmentSlot.HEAD, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<ArmorItem> Uranium_ChestPlate  = ITEMS.register("uranium_chestplate", () -> new UrainumArmour( ArmorMaterialInit.URANIUM , EquipmentSlot.CHEST, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<ArmorItem> Uranium_Leggings  = ITEMS.register("uranium_leggings", () -> new UrainumArmour( ArmorMaterialInit.URANIUM , EquipmentSlot.LEGS, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
+    public static final RegistryObject<ArmorItem> Uranium_Boots = ITEMS.register("uranium_boots", () -> new UrainumArmour( ArmorMaterialInit.URANIUM , EquipmentSlot.FEET, new Item.Properties().tab(MyMod.UraniumMod_Tab).stacksTo(1).rarity(Rarity.EPIC).fireResistant()));
 
     public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, Item.Properties properties)
     {
