@@ -75,7 +75,7 @@ public class MageArmorItem extends ArmorItem {
             uraniumBootsEquipped = true;
         }
 
-        stack = player.getInventory().getArmor(1);
+        stack = player.getInventory().getArmor(2);
         MyMod.LOGGER.info("armour:" + stack);
         MyMod.LOGGER.info("armour:" + player.getInventory().getArmor(3));
     }
