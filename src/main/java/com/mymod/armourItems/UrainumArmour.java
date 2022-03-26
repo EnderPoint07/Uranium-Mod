@@ -53,15 +53,28 @@ public class UrainumArmour extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
 
+        boolean a = false;
+        boolean b = false;
+        boolean c = false;
+        boolean d = false;
+
         if (player.getInventory().getArmor(0).getItem() == Registration.Uranium_Boots.get()) {
             player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 1));
+            d = true;
         }
         if (player.getInventory().getArmor(1).getItem() == Registration.Uranium_Leggings.get()) {
             player.addEffect(new MobEffectInstance(MobEffects.JUMP, 60, 2));
+            c = true;
         }
-
         if (player.getInventory().getArmor(3).getItem() == Registration.Uranium_Helmet.get()) {
             player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 2));
+            a = true;
+        }
+        if (player.getInventory().getArmor(2).getItem() == Registration.Uranium_ChestPlate.get()) {
+            b = true;
+        }
+        if (a && b && c && d) {
+            player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 60, 5));
         }
     }
 
