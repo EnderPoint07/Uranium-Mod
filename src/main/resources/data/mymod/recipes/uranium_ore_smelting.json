@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient":
+  {
+    "item": "mymod:uranium_ore"
+  },
+  "result": "mymod:raw_uranium",
+  "experience": 2.5,
+  "cookingtime": 150
+}

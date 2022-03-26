@@ -7,6 +7,7 @@ import com.mymod.Registration;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.TickTask;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -53,6 +54,8 @@ public class UrainumArmour extends ArmorItem {
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
 
+        if(level.isClientSide) return;
+
         boolean a = false;
         boolean b = false;
         boolean c = false;
@@ -66,15 +69,15 @@ public class UrainumArmour extends ArmorItem {
             player.addEffect(new MobEffectInstance(MobEffects.JUMP, 60, 2));
             c = true;
         }
-        if (player.getInventory().getArmor(3).getItem() == Registration.Uranium_Helmet.get()) {
-            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 2));
+        if (player.getInventory().getArmor(3).getItem() == Registration.Uranium_Helmet.get() && !player.hasEffect(MobEffects.REGENERATION)) {
+            player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 60, 1));
             a = true;
         }
         if (player.getInventory().getArmor(2).getItem() == Registration.Uranium_ChestPlate.get()) {
             b = true;
         }
-        if (a && b && c && d) {
-            player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 60, 5));
+        if (a && b && c && d && !player.hasEffect(MobEffects.DIG_SPEED)) {
+            player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, 60, 2));
         }
     }
 
