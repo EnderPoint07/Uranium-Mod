@@ -56,7 +56,7 @@ public class OreGen {
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)));
 
         OreConfiguration deepslateConfig = new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), DEEPSLATE_VEINSIZE);
-        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore_deepslateOverworld", new ConfiguredFeature<>(Feature.ORE, deepslateConfig),
+        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore_deepslate_overworld", new ConfiguredFeature<>(Feature.ORE, deepslateConfig),
                 CountPlacement.of(DEEPSLATE_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
