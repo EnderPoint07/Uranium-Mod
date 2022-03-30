@@ -4,6 +4,9 @@ package com.mymod.world.gen;
 import com.mymod.MyMod;
 import com.mymod.Registration;
 import net.minecraft.core.Holder;
+import net.minecraft.core.MappedRegistry;
+import net.minecraft.core.Registry;
+import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.world.level.biome.Biome;
@@ -79,7 +82,7 @@ public class OreGen {
         return PlacementUtils.register(registeryName, Holder.direct(feature), placementModifiers);
     }
 
-    @SubscribeEvent
+    @SubscribeEvent(priority = EventPriority.NORMAL)
     public static void biomeLoading(final BiomeLoadingEvent event) {
 
         if (event.getCategory() == Biome.BiomeCategory.THEEND) {
