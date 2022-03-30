@@ -49,32 +49,32 @@ public class OreGen {
     {
 
         OreConfiguration overworldConfig = new OreConfiguration(OreFeatures.STONE_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), OVERWORLD_VEINSIZE);
-        OVERWORLD_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, overworldConfig),
+        OVERWORLD_OREGEN = registerPlacedFeature("uranium_ore_overworld", new ConfiguredFeature<>(Feature.ORE, overworldConfig),
                 CountPlacement.of(OVERWORLD_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)));
 
         OreConfiguration deepslateConfig = new OreConfiguration(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), DEEPSLATE_VEINSIZE);
-        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, deepslateConfig),
+        DEEPSLATE_OREGEN = registerPlacedFeature("uranium_ore_deepslateOverworld", new ConfiguredFeature<>(Feature.ORE, deepslateConfig),
                 CountPlacement.of(DEEPSLATE_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
                 HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.aboveBottom(64)));
 
         OreConfiguration netherConfig = new OreConfiguration(OreFeatures.NETHER_ORE_REPLACEABLES, Registration.UraniumOre.get().defaultBlockState(), NETHER_VEINSIZE);
-        NETHER_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, netherConfig),
+        NETHER_OREGEN = registerPlacedFeature("uranium_ore_nether", new ConfiguredFeature<>(Feature.ORE, netherConfig),
                 CountPlacement.of(NETHER_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(128)));
 
         OreConfiguration endConfig = new OreConfiguration(IN_ENDSTONE, Registration.UraniumOre.get().defaultBlockState(), END_VEINSIZE);
-        END_OREGEN = registerPlacedFeature("uranium_ore", new ConfiguredFeature<>(Feature.ORE, endConfig),
+        END_OREGEN = registerPlacedFeature("uranium_ore_end", new ConfiguredFeature<>(Feature.ORE, endConfig),
                 CountPlacement.of(END_AMOUNT),
                 InSquarePlacement.spread(),
                 BiomeFilter.biome(),
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(265)));
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(256)));
     }
 
     private static <C extends FeatureConfiguration, F extends Feature<C>> Holder<PlacedFeature> registerPlacedFeature(String registeryName, ConfiguredFeature<C, F> feature, PlacementModifier ... placementModifiers)
