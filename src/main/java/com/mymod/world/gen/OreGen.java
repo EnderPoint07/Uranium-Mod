@@ -4,10 +4,8 @@ package com.mymod.world.gen;
 import com.mymod.MyMod;
 import com.mymod.Registration;
 import net.minecraft.core.Holder;
-import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
@@ -23,14 +21,15 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.apache.logging.log4j.core.net.Priority;
 
 @Mod.EventBusSubscriber(modid = MyMod.MODID, bus= Mod.EventBusSubscriber.Bus.FORGE)
 public class OreGen {
 
-    public static final int OVERWORLD_VEINSIZE = 5;
+    public static final int OVERWORLD_VEINSIZE = 5; 
     public static final int OVERWORLD_AMOUNT = 3;
     public static final int DEEPSLATE_VEINSIZE = 5;
-    public static final int DEEPSLATE_AMOUNT = 3;
+    public static final int DEEPSLATE_AMOUNT = 3;   
     public static final int NETHER_VEINSIZE = 10;
     public static final int NETHER_AMOUNT = 6;
     public static final int END_VEINSIZE = 20;
@@ -80,7 +79,7 @@ public class OreGen {
         return PlacementUtils.register(registeryName, Holder.direct(feature), placementModifiers);
     }
 
-    @SubscribeEvent(priority = EventPriority.HIGH)
+    @SubscribeEvent
     public static void biomeLoading(final BiomeLoadingEvent event) {
 
         if (event.getCategory() == Biome.BiomeCategory.THEEND) {
