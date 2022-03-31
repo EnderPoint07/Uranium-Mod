@@ -6,8 +6,6 @@ import com.mymod.MyMod;
 import com.mymod.Registration;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.TickTask;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;

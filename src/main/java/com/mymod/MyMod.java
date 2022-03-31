@@ -1,5 +1,6 @@
 package com.mymod;
 
+import com.mymod.configs.Config;
 import com.mymod.world.gen.OreGen;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -49,6 +50,8 @@ public class MyMod
         MinecraftForge.EVENT_BUS.register(this);
 
         Registration.init();
+
+        Config.register();
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -58,9 +61,6 @@ public class MyMod
         LOGGER.info("DIRT BLOCK >> {}", Blocks.DIRT.getRegistryName());
 
         event.enqueueWork(OreGen::registerConfiguredFeatures);
-
-        
-
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
