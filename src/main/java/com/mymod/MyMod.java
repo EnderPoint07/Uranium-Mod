@@ -1,5 +1,6 @@
 package com.mymod;
 
+import com.mymod.configs.Config;
 import com.mymod.world.gen.OreGen;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -28,7 +29,7 @@ public class MyMod
     public static final String MODID = "mymod";
 
         // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
 
     public static final String TAB_NAME = "Uranium Mod";
 
@@ -51,6 +52,8 @@ public class MyMod
         MinecraftForge.EVENT_BUS.register(this);
 
         Registration.init();
+
+        Config.register();
     }
 
     private void setup(final FMLCommonSetupEvent event)
