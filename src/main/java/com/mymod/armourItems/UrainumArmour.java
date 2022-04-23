@@ -32,6 +32,8 @@ import java.util.UUID;
 public class UrainumArmour extends ArmorItem {
 
     private static final UUID HEALTH_MODIFIER_UUID = UUID.fromString("021e9046-8014-4019-a87f-a0e797c33163");
+    private static final UUID SPEED_MODIFIER_UUID = UUID.fromString("021e9046-8014-4019-a87f-a0e797c45213");
+
     Multimap<Attribute, AttributeModifier> defaultModifiers;
 
     List<Map.Entry<Attribute, AttributeModifier>> entries = new ArrayList<>();
@@ -44,6 +46,12 @@ public class UrainumArmour extends ArmorItem {
                 b.put(entry);
             b.put(Attributes.MAX_HEALTH, new AttributeModifier(HEALTH_MODIFIER_UUID, "generic.max_health", 20, AttributeModifier.Operation.ADDITION));
             defaultModifiers = b.build();
+        } else if(slot == EquipmentSlot.FEET) {
+            ImmutableMultimap.Builder<Attribute, AttributeModifier> b = new ImmutableMultimap.Builder<>();
+            for (Map.Entry<Attribute, AttributeModifier> entry : super.getDefaultAttributeModifiers(slot).entries())
+                b.put(entry);
+            b.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(SPEED_MODIFIER_UUID, "generic.movement_speed", 0.1, AttributeModifier.Operation.ADDITION));
+            defaultModifiers = b.build();
         } else {
             defaultModifiers = super.getDefaultAttributeModifiers(slot);
         }
@@ -54,15 +62,13 @@ public class UrainumArmour extends ArmorItem {
 
         if(level.isClientSide) return;
 
+
         boolean a = false;
         boolean b = false;
         boolean c = false;
-        boolean d = false;
+        boolean d = player.getInventory().getArmor(0).getItem() == Registration.Uranium_Boots.get();
 
-        if (player.getInventory().getArmor(0).getItem() == Registration.Uranium_Boots.get()) {
-            player.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 60, 1));
-            d = true;
-        }
+
         if (player.getInventory().getArmor(1).getItem() == Registration.Uranium_Leggings.get()) {
             player.addEffect(new MobEffectInstance(MobEffects.JUMP, 60, 2));
             c = true;

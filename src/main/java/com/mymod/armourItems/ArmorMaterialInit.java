@@ -1,5 +1,8 @@
-package com.mymod;
+package com.mymod.armourItems;
 
+import com.mymod.MyMod;
+import com.mymod.Registration;
+import com.mymod.armourItems.baseArmourMat;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;

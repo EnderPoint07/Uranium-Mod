@@ -1,4 +1,4 @@
-package com.mymod;
+package com.mymod.armourItems;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EquipmentSlot;

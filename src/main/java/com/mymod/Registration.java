@@ -1,5 +1,6 @@
 package com.mymod;
 
+import com.mymod.armourItems.ArmorMaterialInit;
 import com.mymod.armourItems.UrainumArmour;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
